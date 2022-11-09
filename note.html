@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Webpage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <script>
+            function showPreview(){
+                var html = document.getElementById("HTML").value;
+                var css = document.getElementById("CSS").value;
+                var js = document.getElementById("JavaScript").value;
+                var frame = document.getElementById("preview-page").contentWindow.document;
+
+                frame.open();
+                frame.write(html+css+js);
+                frame.close();
+            }
+    </script>
+    <div class="code-den">
+        <textarea id="HTML" placeholder="HTML Code" oninput="showPreview()"></textarea>
+        <textarea id="CSS" placeholder="CSS Code" oninput="showPreview()"></textarea>
+        <textarea id="JavaScript" placeholder="JS Code" oninput="showPreview()"></textarea>
+    </div>
+
+    <div class="preview">
+        <iframe id="preview-page"></iframe>
+    </div>
+
+</body>
+</html>
